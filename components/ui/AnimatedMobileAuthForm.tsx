@@ -5,13 +5,15 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { motion } from "motion/react";
 import { TbSwitchHorizontal } from "react-icons/tb";
+// import FormImage from "./image-mobile.png";
+import Image from "next/image";
 
-const AnimatedAuthForm = () => {
+const AnimatedMobileAuthForm = () => {
 	const [isManual, setIsManual] = useState(false);
 
 	return (
-		<div className='w-96 h-96 bg-white shadow-2xl shadow-[#428BC124] rounded-3xl absolute -bottom-20 left-20'>
-			<motion.div className='p-10 relative overflow-hidden'>
+		<section>
+			<motion.div className=' relative overflow-hidden'>
 				{isManual ? (
 					<motion.div
 						key={"Google SignIn"}
@@ -22,8 +24,13 @@ const AnimatedAuthForm = () => {
 						animate={{ opacity: 1, y: 0 }}
 						exit={{ opacity: 0, y: "-200%" }}
 						className=''>
-						<h2 className='text-2xl font-semibold mb-6'>Welcome back</h2>
-						<p className='text-gray-600 mb-6'>Login using:</p>
+						<Image
+							src={"/image-mobile.png"}
+							width={397}
+							height={259}
+							alt='Form Image'
+							className='rounded-2xl w-full mb-10 '
+						/>
 
 						<button className='w-full flex items-center justify-center gap-3 border border-gray-300 rounded-3xl p-3 mb-4 hover:bg-gray-50 transition-colors'>
 							<svg
@@ -55,7 +62,7 @@ const AnimatedAuthForm = () => {
 							<TbSwitchHorizontal />
 
 							<span className='text-gray-500 text-sm group-hover:text-gray-700 transition-colors'>
-								Click to switch to manual
+								Tap to switch to manual
 							</span>
 						</div>
 					</motion.div>
@@ -68,9 +75,7 @@ const AnimatedAuthForm = () => {
 						}}
 						animate={{ opacity: 1, y: 0 }}
 						exit={{ opacity: 0, y: "200%" }}
-						className=''>
-						<h2 className='text-2xl font-semibold mb-6'>Log in</h2>
-
+						className='mt-10'>
 						<div className='space-y-4'>
 							<Input
 								type='email'
@@ -86,7 +91,7 @@ const AnimatedAuthForm = () => {
 
 						<p className='mt-2 text-gray-500 text-sm'>Forgot Password?</p>
 
-						<Button className='w-fit mt-4 bg-black text-white rounded-full p-3 px-8 font-semibold'>
+						<Button className='w-full mt-4 bg-black text-white rounded-2xl p-3 px-8 font-semibold'>
 							Proceed
 						</Button>
 
@@ -95,14 +100,14 @@ const AnimatedAuthForm = () => {
 							onClick={() => setIsManual((prev) => !prev)}>
 							<TbSwitchHorizontal />
 							<span className='text-gray-500 text-sm group-hover:text-gray-700 transition-colors'>
-								Click to login with google
+								Tap to login with google
 							</span>
 						</button>
 					</motion.div>
 				)}
 			</motion.div>
-		</div>
+		</section>
 	);
 };
 
-export default AnimatedAuthForm;
+export default AnimatedMobileAuthForm;
