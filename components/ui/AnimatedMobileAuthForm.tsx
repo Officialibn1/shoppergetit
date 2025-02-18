@@ -14,7 +14,7 @@ const AnimatedMobileAuthForm = () => {
 	return (
 		<section>
 			<motion.div className=' relative overflow-hidden'>
-				{isManual ? (
+				{!isManual ? (
 					<motion.div
 						key={"Google SignIn"}
 						initial={{ opacity: 0, y: "-200%" }}

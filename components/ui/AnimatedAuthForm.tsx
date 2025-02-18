@@ -12,7 +12,7 @@ const AnimatedAuthForm = () => {
 	return (
 		<div className='w-96 h-96 bg-white shadow-2xl shadow-[#428BC124] rounded-3xl absolute -bottom-20 left-20'>
 			<motion.div className='p-10 relative overflow-hidden'>
-				{isManual ? (
+				{!isManual ? (
 					<motion.div
 						key={"Google SignIn"}
 						initial={{ opacity: 0, y: "-200%" }}
